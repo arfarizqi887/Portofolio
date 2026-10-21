@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio – Creative Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b1a;--bg2:#0d1328;--card:#111a35;--line:#1f2b52;--text:#e8ecff;--mute:#8e9ac4;--blue:#3db5ff;--violet:#8a5cff;--grad:linear-gradient(120deg,var(--blue),var(--violet));color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.7 Manrope,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.logo{font-family:Sora,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin:auto}
+section{padding:96px 0}
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(600px 400px at 85% 8%,rgba(138,92,255,.22),transparent 70%),radial-gradient(500px 400px at 5% 40%,rgba(61,181,255,.13),transparent 70%)}
+main,header,footer{position:relative;z-index:1}
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(7,11,26,.85);z-index:60}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(14px);background:rgba(7,11,26,.72);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:30px;align-items:center}
+.links a.l{color:var(--mute);font-weight:500;font-size:.95rem;position:relative;transition:color .25s}
+.links a.l::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--grad);transition:width .3s}
+.links a.l:hover,.links a.l.on{color:var(--text)}
+.links a.l:hover::after,.links a.l.on::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid var(--line);cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s;background:transparent;color:var(--text);font-family:inherit}
+.btn:hover{transform:translateY(-2px);border-color:var(--blue)}
+.btn.p{background:var(--grad);border:0;color:#050816}
+.btn.p:hover{box-shadow:0 8px 30px rgba(100,120,255,.45)}
+.burger{display:none;background:none;border:0;color:var(--text);width:44px;height:44px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:currentColor;margin:5px auto;transition:.3s}
+/* hero */
+.hero{min-height:calc(100vh - 68px);display:flex;align-items:center;padding:60px 0}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hi{color:var(--blue);font-weight:600;margin:0 0 14px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.1rem);font-weight:800;letter-spacing:-.03em}
+.hero h2{font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:600;margin:18px 0;color:var(--text);min-height:1.5em}
+.type::after{content:"|";color:var(--violet);margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.d{color:var(--mute);max-width:52ch;margin:0 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.orb{position:relative;width:min(380px,80vw);aspect-ratio:1;margin:auto;display:grid;place-items:center}
+.orb .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);animation:spin 22s linear infinite}
+.orb .ring:nth-child(2){inset:12%;border-color:rgba(138,92,255,.5);animation-duration:15s;animation-direction:reverse}
+.orb .ring:nth-child(3){inset:24%;border-color:rgba(61,181,255,.5);animation-duration:10s}
+.orb .ring::before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px var(--blue)}
+.orb .ring:nth-child(2)::before{background:var(--violet);box-shadow:0 0 18px var(--violet)}
+.core{width:42%;aspect-ratio:1;border-radius:50%;background:var(--grad);display:grid;place-items:center;font:800 2.6rem Sora,sans-serif;color:#050816;box-shadow:0 0 70px rgba(110,110,255,.55);animation:float 5s ease-in-out infinite;overflow:hidden}
+.core img{width:100%;height:100%;object-fit:cover}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-12px)}}
+/* generic */
+.head{margin-bottom:48px}
+.head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.02em}
+.head p{color:var(--mute);margin:10px 0 0;max-width:56ch}
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.photo{aspect-ratio:4/5;border-radius:24px;border:1px solid var(--line);background:linear-gradient(160deg,#16224a,#0d1328);position:relative;overflow:hidden;display:grid;place-items:center}
+.photo::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(138,92,255,.35),transparent 40%);animation:spin 12s linear infinite}
+.photo span{position:relative;font:800 5rem Sora,sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.about p{color:var(--mute);margin:0 0 16px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 32px}
+.facts div{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--bg2)}
+.facts b{display:block;font:700 1.6rem Sora,sans-serif}
+.facts small{color:var(--mute)}
+.grid{display:grid;gap:20px}
+.skills .grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .3s,border-color .3s}
+.sk:hover{transform:translateY(-5px);border-color:var(--violet)}
+.sk .t{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.sk h3{font-size:1.05rem}
+.sk em{font-style:normal;color:var(--mute);font-size:.85rem}
+.bar{height:6px;border-radius:9px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:9px;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.sk.in .bar i{width:var(--v)}
+.projects .grid{grid-template-columns:repeat(auto-fill,minmax(310px,1fr))}
+.pj{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s,border-color .35s}
+.pj:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 20px 50px rgba(30,40,120,.4)}
+.pv{height:190px;position:relative;overflow:hidden;display:grid;place-items:center}
+.pv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,var(--card))}
+.pv svg{width:70%;transition:transform .5s}
+.pj:hover .pv svg{transform:scale(1.07)}
+.pb{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pb h3{font-size:1.2rem}
+.pb p{margin:0;color:var(--mute);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.tags span{font-size:.78rem;padding:4px 12px;border-radius:99px;background:rgba(138,92,255,.14);color:#c4b2ff}
+.pl{display:flex;gap:18px;font-weight:600;font-size:.9rem}
+.pl a{color:var(--blue);transition:color .2s}
+.pl a:hover{color:var(--text)}
+.contact .box{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1fr 1.1fr;gap:44px}
+.ci{display:grid;gap:14px;margin-top:26px;color:var(--mute)}
+.ci a:hover{color:var(--blue)}
+form{display:grid;gap:14px}
+label{font-size:.88rem;color:var(--mute);display:grid;gap:6px}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);font:inherit;transition:border-color .25s,box-shadow .25s}
+input:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(61,181,255,.18)}
+textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:.9rem;text-align:center}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+.hero .wrap,.about .wrap,.contact .box{grid-template-columns:1fr}
+.hero{text-align:center}.hero p.d{margin-inline:auto}.cta{justify-content:center}
+.orb{order:-1;width:min(260px,70vw)}
+.photo{max-width:320px;margin:auto}
+section{padding:72px 0}
+}
+@media(max-width:760px){
+.burger{display:block}
+.links{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:6px;padding:16px 20px 24px;background:rgba(7,11,26,.97);border-bottom:1px solid var(--line);display:none}
+.links.open{display:flex}
+.links a.l{padding:10px 0;font-size:1.05rem}
+.facts{grid-template-columns:1fr 1fr 1fr;gap:10px}
+.facts div{padding:12px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.sk .bar i{width:var(--v)}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header id="top">
+<nav class="wrap" aria-label="Navigasi utama">
+<a href="#home" class="logo"><span class="nm1"></span><i>.</i></a>
+<button class="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span></button>
+<div class="links">
+<a class="l on" href="#home">Home</a><a class="l" href="#about">About</a><a class="l" href="#skills">Skills</a><a class="l" href="#projects">Projects</a><a class="l" href="#contact">Contact</a>
+<a class="btn p" href="#contact">Hire Me</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="wrap">
+<div>
+<p class="hi">Halo, selamat datang</p>
+<h1>Hi, I’m <span class="nm"></span></h1>
+<h2 class="type" aria-label="Creative Web Developer &amp; Digital Creator"></h2>
+<p class="d">Saya membangun situs web yang cepat, rapi, dan nyaman dipakai. Fokus saya pada antarmuka modern, animasi yang halus, dan kode yang mudah dirawat.</p>
+<div class="cta"><a class="btn p" href="#projects">View My Projects</a><a class="btn" href="#contact">Contact Me</a></div>
+</div>
+<div class="orb" aria-hidden="true"><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="core"><span class="ini"></span></div></div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+<div class="photo rv" aria-hidden="true"><span class="ini"></span></div>
+<div class="rv">
+<div class="head" style="margin-bottom:22px"><h2>Tentang saya</h2></div>
+<p>Saya web developer yang suka mengubah ide menjadi produk digital yang berfungsi dan enak dilihat. Saya mulai dari desain antarmuka, lalu menulis kodenya sendiri sampai rilis.</p>
+<p>Di luar pekerjaan, saya tertarik pada desain interaktif, fotografi, dan eksperimen dengan teknologi baru. Target karier saya: memimpin tim produk yang menggabungkan desain dan rekayasa.</p>
+<div class="facts"><div><b>-</b><small>Tahun pengalaman</small></div><div><b>4</b><small>Proyek selesai</small></div><div><b>3</b><small>Klien puas</small></div></div>
+<a class="btn p" href="#" download="CV.pdf" id="cv">Download CV</a>
+</div>
+</div></section>
+
+<section class="skills" id="skills"><div class="wrap">
+<div class="head rv"><h2>Skills</h2><p>Teknologi yang saya pakai sehari-hari.</p></div>
+<div class="grid">
+<div class="sk rv" style="--v:92%"><div class="t"><h3>HTML</h3><em>92%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:88%"><div class="t"><h3>CSS</h3><em>88%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:85%"><div class="t"><h3>JavaScript</h3><em>85%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:80%"><div class="t"><h3>React</h3><em>80%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:90%"><div class="t"><h3>Tailwind CSS</h3><em>90%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:78%"><div class="t"><h3>UI/UX Design</h3><em>78%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:82%"><div class="t"><h3>Git</h3><em>82%</em></div><div class="bar"><i></i></div></div>
+<div class="sk rv" style="--v:70%"><div class="t"><h3>Node.js</h3><em>70%</em></div><div class="bar"><i></i></div></div>
+</div></div></section>
+
+<section class="projects" id="projects"><div class="wrap">
+<div class="head rv"><h2>Projects</h2><p>Beberapa proyek terbaik saya. Ganti isinya dengan karya Anda sendiri.</p></div>
+<div class="grid" id="pg"></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap"><div class="box rv">
+<div>
+<h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800">Mari bekerja sama</h2>
+<p style="color:var(--mute)">Punya proyek atau ide? Kirim pesan, saya biasanya membalas dalam 1–2 hari kerja.</p>
+<div class="ci"><a href="mailto:halo@contoh.com">halo@contoh.com</a><a href="#">github.com/username</a><a href="#">linkedin.com/in/username</a></div>
+</div>
+<form id="f">
+<label>Nama<input name="n" required autocomplete="name"></label>
+<label>Email<input name="e" type="email" required autocomplete="email"></label>
+<label>Pesan<textarea name="m" required></textarea></label>
+<button class="btn p" type="submit">Kirim pesan</button>
+</form>
+</div></div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> <span class="nm"></span>. Dibuat dengan HTML, CSS, dan JavaScript.</div></footer>
+
+<script>
+const NAME="kelompok RPA"; // ganti dengan nama Anda
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+$$('.nm').forEach(e=>e.textContent=NAME);$('.nm1').textContent=NAME;
+const ini=NAME.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+$$('.ini').forEach(e=>e.textContent=ini);
+$('#yr').textContent=new Date().getFullYear();
+// typing
+const words=["Creative Web Developer & Digital Creator","UI Engineer yang peduli detail","Pembuat pengalaman web yang halus"];
+const tp=$('.type');let wi=0,ci=0,del=false;
+function tick(){const w=words[wi];ci+=del?-1:1;tp.textContent=w.slice(0,ci);let t=del?28:55;
+if(!del&&ci===w.length){del=true;t=1800}else if(del&&ci===0){del=false;wi=(wi+1)%words.length;t=350}
+setTimeout(tick,t)}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){tp.textContent=words[0]}else tick();
+// projects
+const g=(a,b)=>`linear-gradient(135deg,${a},${b})`;
+const P=[
+["Test Typing","Tes kecepatan mengetik bahasa Indonesia dengan mini game Penjaga Meteor. Hasilnya berupa WPM, akurasi, dan level.",["HTML","CSS","JavaScript","Canvas"],"#0e7490","#a21caf",'<rect x="10" y="8" width="180" height="40" rx="10" fill="#0b1230" opacity=".8"/><text x="20" y="33" font-family="monospace" font-size="13" fill="#34d399">ketik cepat</text><rect x="107" y="21" width="2" height="15" fill="#22d3ee"/><rect x="138" y="17" width="46" height="22" rx="11" fill="#e879f9"/><text x="145" y="32" font-family="monospace" font-size="9" font-weight="700" fill="#07061a">62 WPM</text><g fill="#0b1230" opacity=".8"><rect x="10" y="56" width="15" height="13" rx="3"/><rect x="28" y="56" width="15" height="13" rx="3"/><rect x="46" y="56" width="15" height="13" rx="3"/><rect x="64" y="56" width="15" height="13" rx="3"/><rect x="82" y="56" width="15" height="13" rx="3"/><rect x="100" y="56" width="15" height="13" rx="3"/><rect x="118" y="56" width="15" height="13" rx="3"/><rect x="136" y="56" width="15" height="13" rx="3"/><rect x="154" y="56" width="15" height="13" rx="3"/><rect x="172" y="56" width="15" height="13" rx="3"/><rect x="19" y="72" width="15" height="13" rx="3"/><rect x="37" y="72" width="15" height="13" rx="3"/><rect x="55" y="72" width="15" height="13" rx="3"/><rect x="73" y="72" width="15" height="13" rx="3"/><rect x="91" y="72" width="15" height="13" rx="3"/><rect x="109" y="72" width="15" height="13" rx="3"/><rect x="127" y="72" width="15" height="13" rx="3"/><rect x="145" y="72" width="15" height="13" rx="3"/><rect x="163" y="72" width="15" height="13" rx="3"/><rect x="28" y="88" width="15" height="13" rx="3"/><rect x="46" y="88" width="15" height="13" rx="3"/><rect x="64" y="88" width="15" height="13" rx="3"/><rect x="82" y="88" width="15" height="13" rx="3"/><rect x="100" y="88" width="15" height="13" rx="3"/><rect x="118" y="88" width="15" height="13" rx="3"/><rect x="136" y="88" width="15" height="13" rx="3"/><rect x="46" y="104" width="100" height="10" rx="3"/></g><rect x="64" y="72" width="15" height="13" rx="3" fill="#22d3ee"/><rect x="100" y="56" width="15" height="13" rx="3" fill="#e879f9"/><rect x="82" y="88" width="15" height="13" rx="3" fill="#22d3ee"/>','https://arfarizqi887.github.io/tes-mengetik-/','https://github.com/arfarizqi887/tes-mengetik-'],
+["Biodata RE:ZERO","Toko online responsif dengan keranjang, filter produk, dan checkout cepat.",["JavaScript","CSS","Node.js"],"#0e7490","#4f46e5",'<rect x="10" y="10" width="180" height="100" rx="10" fill="#0b1230" opacity=".8"/><circle cx="52" cy="45" r="24" fill="#8a5cff"/><circle cx="52" cy="39" r="8" fill="#e8ecff"/><path d="M35 64 Q52 46 69 64 Z" fill="#e8ecff"/><rect x="20" y="82" width="28" height="10" rx="5" fill="#3db5ff"/><rect x="52" y="82" width="28" height="10" rx="5" fill="#e879f9"/><rect x="92" y="22" width="84" height="10" rx="5" fill="#e8ecff" opacity=".85"/><rect x="92" y="38" width="56" height="7" rx="3.5" fill="#3db5ff"/><rect x="92" y="58" width="84" height="6" rx="3" fill="#1f2b52"/><rect x="92" y="58" width="70" height="6" rx="3" fill="#8a5cff"/><rect x="92" y="71" width="84" height="6" rx="3" fill="#1f2b52"/><rect x="92" y="71" width="52" height="6" rx="3" fill="#3db5ff"/><rect x="92" y="84" width="84" height="6" rx="3" fill="#1f2b52"/><rect x="92" y="84" width="62" height="6" rx="3" fill="#e879f9"/>','https://arfarizqi887.github.io/RE-0/','https://github.com/arfarizqi887/RE-0'],
+["Orbit Chat","Aplikasi pesan real-time dengan ruang obrolan dan notifikasi.",["React","Firebase","Tailwind"],"#6d28d9","#2563eb",'<rect x="12" y="14" width="110" height="26" rx="13" fill="#0b1230" opacity=".7"/><rect x="78" y="50" width="110" height="26" rx="13" fill="#3db5ff" opacity=".85"/><rect x="12" y="86" width="90" height="26" rx="13" fill="#0b1230" opacity=".7"/>'],
+["Pixel Folio","Template portofolio fotografer dengan galeri masonry dan lightbox.",["HTML","CSS","JavaScript"],"#9333ea","#0891b2",'<rect x="12" y="12" width="84" height="58" rx="8" fill="#0b1230" opacity=".7"/><rect x="104" y="12" width="84" height="40" rx="8" fill="#3db5ff" opacity=".8"/><rect x="12" y="78" width="84" height="32" rx="8" fill="#8a5cff" opacity=".8"/><rect x="104" y="60" width="84" height="50" rx="8" fill="#0b1230" opacity=".7"/>'],
+["Flowtask","Papan tugas gaya kanban dengan drag-and-drop dan penyimpanan lokal.",["JavaScript","Git","UI/UX"],"#1e40af","#a21caf",'<rect x="12" y="12" width="52" height="96" rx="8" fill="#0b1230" opacity=".7"/><rect x="74" y="12" width="52" height="96" rx="8" fill="#0b1230" opacity=".7"/><rect x="136" y="12" width="52" height="96" rx="8" fill="#0b1230" opacity=".7"/><rect x="20" y="24" width="36" height="16" rx="4" fill="#3db5ff"/><rect x="82" y="24" width="36" height="16" rx="4" fill="#8a5cff"/><rect x="82" y="48" width="36" height="16" rx="4" fill="#3db5ff"/>'],
+["Aurora Landing","Landing page produk SaaS dengan animasi scroll dan skor Lighthouse tinggi.",["React","Tailwind","Figma"],"#7c3aed","#0ea5e9",'<rect x="30" y="14" width="140" height="14" rx="7" fill="#0b1230" opacity=".7"/><rect x="50" y="38" width="100" height="10" rx="5" fill="#fff" opacity=".6"/><rect x="72" y="62" width="56" height="22" rx="11" fill="#3db5ff"/><rect x="30" y="94" width="140" height="16" rx="8" fill="#0b1230" opacity=".7"/>']
+];
+$('#pg').innerHTML=P.map(p=>`<article class="pj rv"><div class="pv" style="background:${g(p[3],p[4])}"><svg viewBox="0 0 200 120" aria-hidden="true">${p[5]}</svg></div><div class="pb"><h3>${p[0]}</h3><p>${p[1]}</p><div class="tags">${p[2].map(t=>`<span>${t}</span>`).join('')}</div><div class="pl"><a href="${p[6]||'#'}" ${p[6]?'target="_blank" rel="noopener"':''}>Buka</a><a href="${p[7]||'#'}" ${p[7]?'target="_blank" rel="noopener"':''}>Source Code</a></div></div></article>`).join('');
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(e=>io.observe(e));
+// nav
+const hd=$('header'),bg=$('.burger'),ln=$('.links');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>10),{passive:true});
+bg.onclick=()=>{const o=ln.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+$$('.links a').forEach(a=>a.addEventListener('click',()=>{ln.classList.remove('open');bg.setAttribute('aria-expanded',false)}));
+const secs=$$('main section'),ls=$$('a.l');
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)ls.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>so.observe(s));
+// form -> mailto
+$('#f').addEventListener('submit',ev=>{ev.preventDefault();const d=new FormData(ev.target);
+location.href='mailto:halo@contoh.com?subject='+encodeURIComponent('Pesan dari '+d.get('n'))+'&body='+encodeURIComponent(d.get('m')+'\n\n'+d.get('e'))});
+$('#cv').addEventListener('click',e=>e.preventDefault());
+</script>
+</body>
+</html>
